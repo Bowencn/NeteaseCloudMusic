@@ -1,18 +1,24 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-
+import Home from '@/components/content/home.vue'
+import songList from '@/components/content/songList.vue'
 Vue.use(Router)
 
 export default new Router({
   routes: [
     {
       path: '/',
-      name: 'home',
-      component: require('@/components/content/home.vue').default
+      name: 'songList',
+      component:songList
+      // component: require('@/components/content/home.vue').default
     },
     {
-      path: '*',
-      redirect: '/'
+      path: '/home',
+      component:Home
+    },
+    {
+      path: '/songList',
+      component:songList
     }
   ]
 })

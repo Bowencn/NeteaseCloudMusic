@@ -3,3 +3,5 @@ html,body{
     min-height: 632px;
     overflow: hidden;
 }
+
+.element::-webkit-scrollbar { width: 0 !important }

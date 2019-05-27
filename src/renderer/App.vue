@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <div class="main">
-      <songlist></songlist>
+      <Sidebar></Sidebar>
       <router-view></router-view>
     </div>
     <playbar></playbar>
@@ -10,7 +10,7 @@
 
 <script>
 import playbar from './components/playBar'
-import songList from './components/songList'
+import Sidebar from './components/Sidebar'
   export default {
     name: 'neteasecloudmusic',
     data(){
@@ -21,7 +21,7 @@ import songList from './components/songList'
     },
     components:{
       playbar : playbar,
-      songlist : songList
+      Sidebar : Sidebar
     },
     methods:{
       a:function(){
@@ -53,7 +53,7 @@ import songList from './components/songList'
       }
     }
     .play-bar{
-      position: fixed;
+      position: absolute;
       bottom: 0;
     }
   }

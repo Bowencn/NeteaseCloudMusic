@@ -17,7 +17,7 @@
             </div>
           </div>
         </div>
-        <audio src="http://m10.music.126.net/20190525151756/7cd1d8ba336505e11766ea1b9eae82b9/ymusic/055d/065f/515d/272b5d606115f57d5942f79561148769.mp3" controls="controls"></audio>
+        <!-- <audio src="http://m10.music.126.net/20190525151756/7cd1d8ba336505e11766ea1b9eae82b9/ymusic/055d/065f/515d/272b5d606115f57d5942f79561148769.mp3" controls="controls"></audio> -->
         <div class="play-btn">
           <div class="btn btn-like">
             <i></i>
@@ -60,23 +60,23 @@ export default {
       return{
         singer:'郁可唯',
         allTime:'01:20',
-        musicsrc : 'http://m10.music.126.net/20190525151756/7cd1d8ba336505e11766ea1b9eae82b9/ymusic/055d/065f/515d/272b5d606115f57d5942f79561148769.mp3'
+        // musicsrc : 'http://m10.music.126.net/20190525151756/7cd1d8ba336505e11766ea1b9eae82b9/ymusic/055d/065f/515d/272b5d606115f57d5942f79561148769.mp3'
       }
     },
     mounted(){
         this.control()
-        console.log(this);
+        // console.log(this);
         
     },
     methods:{
         control:function(){
             this.audio = new Audio();
-            let song = this.$http.get('http://localhost:3000/song/url?id=1349292048').then()
-            console.log(song);
+            // let song = this.$http.get('http://localhost:3000/song/url?id=1349292048').then()
+            // console.log(song);
             
         },
         play:function(){
-            this.audio.src = this.musicsrc
+            // this.audio.src = this.musicsrc
             
         }
     }
