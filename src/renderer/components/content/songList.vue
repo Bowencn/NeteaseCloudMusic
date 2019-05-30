@@ -42,7 +42,18 @@
                 </div>
             </div>
         </div>
-        <div class="list-main"></div>
+        <div class="list-main">
+            <div class="list-title">
+                <ul>
+                    <router-link tag="li" to="/songList/list" class="active"><p>歌曲列表</p></router-link>
+                    <router-link tag="li" to=""><p>评论</p><p class="num">({{pinglun}})</p></router-link>
+                    <router-link tag="li" to=""><p>收藏者</p></router-link>
+                    <i class="serch-img"></i>
+                    <input type="serch" class="search" placeholder="搜索歌单音乐">
+                </ul>
+            </div>
+            <router-view></router-view>
+        </div>
     </div>
 </template>
 <script>
@@ -55,7 +66,8 @@ export default {
             collNum:'0',
             shareNum:'0',
             songNum:'1044',
-            playNum:'1519'
+            playNum:'1519',
+            pinglun:'0'
         }
     }
 }
@@ -229,6 +241,46 @@ export default {
                 }
             }
         }
-        .list-main{}
+        .list-main{
+            // border: 1px solid black;
+            width: 100%;
+            height: 50%;
+            .list-title{
+                // margin-top: 40px;
+                ul{
+                    display: flex;
+                    flex-direction: row;
+                    position: relative;
+                    li{ 
+                        margin-left: 30px;
+                        p{
+                            font-size: 14px;
+                            display: inline-block;
+                        }
+                    }
+                    .active{
+                        color: #f596aa;
+                        padding-bottom:3px;
+                        border-bottom: 2px solid #f596aa;
+                    }
+                    .serch-img{
+                        background-image: url('../../assets/搜索--1.svg');
+                        background-size: cover;
+                        width: 12px;
+                        height: 12px;
+                        position: absolute;
+                        right: 140px;
+                        top: 5px;;
+                    }
+                    .search{
+                        position: absolute;
+                        right: 10px;
+                        height: 24px;
+                        border-radius: 90px;
+                        border: 0;
+                    }
+                }
+            }
+        }
     }
 </style>

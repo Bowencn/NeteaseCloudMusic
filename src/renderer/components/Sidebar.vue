@@ -102,7 +102,7 @@ export default {
 </script>
 <style lang="scss" scoped>
 .Sidebar{
-  width: 200px;
+  width: 248px;
   height: 100%;
   border-right: 1px solid rgb(230, 230, 230);
   .user {
