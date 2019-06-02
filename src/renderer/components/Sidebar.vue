@@ -73,7 +73,7 @@ export default {
     this.$http
       .get("http://localhost:3000/user/playlist?uid=93556919")
       .then(res => {
-        console.log(res);
+        // console.log(res);
         this.userData = res.data.playlist;
         // this.user = res.data.playlist.
       });

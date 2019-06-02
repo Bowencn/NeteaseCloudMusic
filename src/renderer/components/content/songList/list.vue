@@ -10,13 +10,13 @@
         </div>
         <div class="list"> 
             <ul>
-                <li>
-                    <p class="song-num">{{num}}</p>
+                <li v-for="item in playlist" :key="item.id">
+                    <p class="song-num">{{playlist.length}}</p>
                     <i class="song-like"></i>
                     <i class="song-down"></i>
-                    <p class="song-name">这个年纪</p>
-                    <p class="song-singer">七一</p>
-                    <p class="song-album">这个年纪</p>
+                    <p class="song-name" >{{item.name}}</p>
+                    <p class="song-singer">{{item.ar[0].name}}</p>
+                    <p class="song-album">{{item.al.name}}</p>
                     <p class="song-time">04:44</p>
                 </li>
             </ul>
@@ -29,6 +29,7 @@ export default {
     data () {
         return {
             num:'01',
+            listwait:[],
             playlist:[]
         }
     },
@@ -39,18 +40,33 @@ export default {
         getLikemusic(){
             api.getMyLikeMusic().then(res=>{
                 // console.log(res.data.playlist.trackIds[0].id);
-                this.playlist = (res.data.playlist.trackIds)
-                // console.log(this.playlist);
-                for (let index = 0; index < this.playlist.length; index++) {
-                    const element = this.playlist[index].id;
+                let playwait = (res.data.playlist.trackIds)
+                // console.log(this.playwait);
+                for (let index = 0; index < 10; index++) {
+                    const element = playwait[index].id;
                     // console.log(element);
-                    this.getMusic(element)
+                    this.listwait.push(element)
+                    this.getMusic(this.listwait[index])
                 }
+                console.log(this.listwait);
+                
+                
             })
 
         },
         getMusic(id){
             api.getMusic(id).then(res=>{
+                // console.log(res.data.songs[0]);
+                this.playlist.push(res.data.songs[0])
+                console.log(this.playlist);
+                
+                // this.getPlay()
+            })
+        },
+        getPlay(id){
+            console.log(this.playlist);
+            
+            api.getPlay(id).then(res=>{
                 console.log(res);
                 
             })
